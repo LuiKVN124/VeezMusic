@@ -41,7 +41,7 @@
 
 ## Commands 🛠
 
-- `/play <song name>` - play song you requested
+- `/play <song name>` - phát bài hát bạn yêu cầu
 - `/playlist` - Show now playing list
 - `/song <song name>` - download songs you want quickly
 - `/search <query>` - search videos on youtube with details
