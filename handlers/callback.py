@@ -20,28 +20,28 @@ async def cbstart(_, query: CallbackQuery):
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "➕ Thêm Tôi Vào Nhóm ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "❓ How to use Me", callback_data="cbhowtouse")
+                        "❓ Hướng Giẫn Sử Dụng", callback_data="cbhowtouse")
                 ],[
                     InlineKeyboardButton(
-                         "📚 Commands", callback_data="cbcmds"
+                         "📚 Các Lệnh", callback_data="cbcmds"
                     ),
                     InlineKeyboardButton(
-                        "💝 Donate", url=f"https://t.me/{OWNER_NAME}")
+                        "💝 Quyên Góp ", url=f"https://t.me/{OWNER_NAME}")
                 ],[
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 Nhóm Âm Nhạc", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                        "📣 Kênh Âm Nhạc", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],[
                     InlineKeyboardButton(
-                        "🌐 Wiki's Page", url="https://github.com/levina-lab/veezmusic/wiki/Veez-Music-Wiki's")
+                        "📥 Admin Music", url="https://t.me/theKingAdminGroup")
                 ],[
                     InlineKeyboardButton(
-                        "🧪 Source Code 🧪", url="https://github.com/levina-lab/VeezMusic"
+                        "Liên Hệ", url="https://t.me/theKingAdminGroup"
                     )
                 ]
             ]
@@ -53,7 +53,7 @@ async def cbstart(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbhelp"))
 async def cbhelp(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>💡 Hello there, welcome to the help menu !</b>
+        f"""<b>💡 Xin chào, chào mừng bạn đến với menu trợ giúp !</b>
 
 **in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
 
@@ -62,10 +62,10 @@ async def cbhelp(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Basic Cmd", callback_data="cbbasic"
+                        "📚 Cơ bản Cmd", callback_data="cbbasic"
                     ),
                     InlineKeyboardButton(
-                        "📕 Advanced Cmd", callback_data="cbadvanced"
+                        "📕 Nâng cao Cmd", callback_data="cbadvanced"
                     )
                 ],
                 [
@@ -78,17 +78,17 @@ async def cbhelp(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📙 Owner Cmd", callback_data="cbowner"
+                        "📙 Chủ nhân Cmd", callback_data="cbowner"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📔 Fun Cmd", callback_data="cbfun"
+                        "📔 Niềm Vui Cmd", callback_data="cbfun"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK TO HELP", callback_data="cbguide"
+                        "🏡 Quay Lại", callback_data="cbguide"
                     )
                 ]
             ]
@@ -99,37 +99,37 @@ async def cbhelp(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🏮 here is the basic commands</b>
+        f"""<b>🏮 đây là điều cơ bản commands</b>
 
 🎧 [ GROUP VC CMD ]
 
-/play (song name) - play song from youtube
-/ytp (song name) - play song directly from youtube 
-/stream (reply to audio) - play song using audio file
-/playlist - show the list song in queue
-/song (song name) - download song from youtube
-/search (video name) - search video from youtube detailed
-/vsong (video name) - download video from youtube detailed
-/lyric - (song name) lyrics scrapper
-/vk (song name) - download song from inline mode
+/play (song name) - phát bài hát từ youtube
+/ytp (song name) - phát bài hát trực tiếp từ youtube 
+/stream (reply to audio) - phát bài hát bằng tệp âm thanh
+/playlist - hiển thị danh sách bài hát trong hàng đợi
+/song (song name) - tải bài hát từ youtube
+/search (video name) - tìm kiếm video chi tiết từ youtube
+/vsong (video name) - tải video từ youtube chi tiết
+/lyric - (song name) trình trích xuất lời bài hát
+/vk (song name) - tải xuống bài hát từ chế độ nội tuyến
 
 🎧 [ CHANNEL VC CMD ]
 
-/cplay - stream music on channel voice chat
-/cplayer - show the song in streaming
-/cpause - pause the streaming music
-/cresume - resume the streaming was paused
-/cskip - skip streaming to the next song
-/cend - end the streaming music
-/admincache - refresh the admin cache
-/ubjoinc - invite the assistant for join to your channel
+/cplay - phát trực tuyến nhạc trên kênh trò chuyện thoại
+/cplayer - hiển thị bài hát trong phát trực tuyến
+/cpause - tạm dừng phát nhạc trực tuyến
+/cresume - tiếp tục phát trực tuyến đã bị tạm dừng
+/cskip - bỏ qua phát trực tuyến đến bài hát tiếp theo
+/cend - kết thúc phát nhạc trực tuyến
+/admincache - làm mới bộ nhớ cache của quản trị viên
+/ubjoinc - mời trợ lý tham gia kênh của bạn
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK", callback_data="cbhelp"
+                        "🏡 Quay Đầu", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -140,7 +140,7 @@ async def cbbasic(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadvanced"))
 async def cbadvanced(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🏮 here is the advanced commands</b>
+        f"""<b>🏮 đây là các lệnh nâng cao</b>
 
 /start (in group) - see the bot alive status
 /reload - reload bot and refresh the admin list
@@ -153,7 +153,7 @@ async def cbadvanced(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK", callback_data="cbhelp"
+                        "🏡 Quay Xe", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -164,26 +164,26 @@ async def cbadvanced(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadmin"))
 async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🏮 here is the admin commands</b>
+        f"""<b>🏮 đây là lệnh quản trị</b>
 
-/player - show the music playing status
-/pause - pause the music streaming
-/resume - resume the music was paused
-/skip - skip to the next song
-/end - stop music streaming
-/userbotjoin - invite assistant join to your group
-/auth - authorized user for using music bot
-/deauth - unauthorized for using music bot
-/control - open the player settings panel
-/delcmd (on | off) - enable / disable del cmd feature
-/musicplayer (on / off) - disable / enable music player in your group
+/player - hiển thị trạng thái phát nhạc
+/pause - tạm dừng phát nhạc
+/resume - tiếp tục âm nhạc đã bị tạm dừng
+/skip - chuyển sang bài hát tiếp theo
+/end - dừng phát nhạc
+/userbotjoin - mời trợ lý tham gia vào nhóm của bạn
+/auth - người dùng được phép sử dụng bot âm nhạc
+/deauth - không được phép sử dụng bot âm nhạc
+/control - mở bảng cài đặt trình phát
+/delcmd (on | off) - bật / tắt tính năng del cmd
+/musicplayer (on / off) - tắt / bật trình phát nhạc in your group
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK", callback_data="cbhelp"
+                        "🏡 Quay Xe", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -194,7 +194,7 @@ async def cbadmin(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbsudo"))
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🏮 here is the sudo commands</b>
+        f"""<b>🏮 đây là lệnh sudo</b>
 
 /userbotleaveall - order the assistant to leave from all group
 /gcast - send a broadcast message trought the assistant
@@ -205,7 +205,7 @@ async def cbsudo(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK", callback_data="cbhelp"
+                        "🏡 Quay Xe", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -216,7 +216,7 @@ async def cbsudo(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbowner"))
 async def cbowner(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🏮 here is the owner commands</b>
+        f"""<b>🏮 đây là lệnh của chủ sở hữu</b>
 
 /stats - show the bot statistic
 /broadcast - send a broadcast message from bot
@@ -231,7 +231,7 @@ async def cbowner(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK", callback_data="cbhelp"
+                        "🏡 Quay Xe", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -242,7 +242,7 @@ async def cbowner(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbfun"))
 async def cbfun(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🏮 here is the fun commands</b>
+        f"""<b>🏮 đây là các lệnh thú vị</b>
 
 /chika - check it by yourself
 /wibu - check it by yourself
@@ -255,7 +255,7 @@ async def cbfun(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK", callback_data="cbhelp"
+                        "🏡 Quay Xe", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -266,7 +266,7 @@ async def cbfun(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbguide"))
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""❓ HOW TO USE THIS BOT:
+        f"""❓ CÁCH SỬ DỤNG BOT NÀY:
 
 1.) first, add me to your group.
 2.) then promote me as admin and give all permissions except anonymous admin.
@@ -278,12 +278,12 @@ async def cbguide(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Command List", callback_data="cbhelp"
+                        "📚 Danh sách lệnh", callback_data="cbhelp"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗑 Close", callback_data="close"
+                        "🗑 ĐÓNG", callback_data="close"
                     )
                 ]
             ]
@@ -350,7 +350,7 @@ async def cbdelcmds(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK", callback_data="cbback"
+                        "🏡 QUAY XE", callback_data="cbback"
                     )
                 ]
             ]
@@ -370,10 +370,10 @@ async def cbhelps(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Basic Cmd", callback_data="cbbasic"
+                        "📚 Căn bản Cmd", callback_data="cbbasic"
                     ),
                     InlineKeyboardButton(
-                        "📕 Advanced Cmd", callback_data="cbadvanced"
+                        "📕 Nâng cao Cmd", callback_data="cbadvanced"
                     )
                 ],
                 [
@@ -386,17 +386,17 @@ async def cbhelps(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📙 Owner Cmd", callback_data="cbowner"
+                        "📙 Chủ nhân Cmd", callback_data="cbowner"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📔 Fun Cmd", callback_data="cbfun"
+                        "📔 Niềm vui Cmd", callback_data="cbfun"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🏡 BACK TO HOME", callback_data="cbstart"
+                        "🏡 Quay Xe", callback_data="cbstart"
                     )
                 ]
             ]
