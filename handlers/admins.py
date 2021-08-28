@@ -86,7 +86,7 @@ async def pause(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
-        await message.reply_text("❗ nothing in streaming!")
+        await message.reply_text("❗ không có gì trong phát trực tuyến!")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
         await message.reply_text("▶️ music paused!")
@@ -100,7 +100,7 @@ async def resume(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "playing"
     ):
-        await message.reply_text("❗ nothing is paused!")
+        await message.reply_text("❗ không có gì bị tạm dừng!")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
         await message.reply_text("⏸ music resumed!")
@@ -112,7 +112,7 @@ async def resume(_, message: Message):
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❗ nothing in streaming!")
+        await message.reply_text("❗ không có gì trong phát trực tuyến!")
     else:
         try:
             queues.clear(chat_id)
@@ -130,7 +130,7 @@ async def skip(_, message: Message):
     global que
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❗ nothing in streaming!")
+        await message.reply_text("❗ không có gì trong phát trực tuyến!")
     else:
         queues.task_done(chat_id)
 
@@ -146,7 +146,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"⫸ skipped : **{skip[0]}**\n⫸ now playing : **{qeue[0][0]}**")
+    await message.reply_text(f"⫸ Chuyển Bài : **{skip[0]}**\n⫸ Đang Mở : **{qeue[0][0]}**")
 
 
 @Client.on_message(command("auth") & other_filters)
@@ -154,7 +154,7 @@ async def skip(_, message: Message):
 async def authenticate(client, message):
     global admins
     if not message.reply_to_message:
-        await message.reply("❗ reply to message to authorize user!")
+        await message.reply("❗ trả lời tin nhắn để cho phép người dùng!")
         return
     if message.reply_to_message.from_user.id not in admins[message.chat.id]:
         new_admins = admins[message.chat.id]
